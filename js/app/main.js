@@ -1,12 +1,8 @@
-console.log(setAuth (AUTHORIZATION_BASIC, 'workforce:Protocol1'));
-
     // check if the loogin is set to 1
     if (!sessionStorage.getItem('loggedIn') || sessionStorage.getItem('loggedIn') == 0) {
         // $("input[name='url']").val('http://test.hiskenya.org');
         $("#login-modal").modal('show');
 
-    } else {
-        alert("yaay");
     }
 
 
@@ -20,7 +16,7 @@ console.log(setAuth (AUTHORIZATION_BASIC, 'workforce:Protocol1'));
 
         var ajaxConfig = {
             async : true,
-            url : link + "/uaa/oauth/token",
+            url : link + "/api/me",
             method :'GET',
             data : {
                 paging : "false",

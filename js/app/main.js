@@ -12,38 +12,45 @@
         var username = $("input[name='username']").val();
         var password = $("input[name='password']").val();
         var link = $("input[name='url']").val();
+        var api_app = {};
 
+        // make a request to get the client id and secret
+        $.ajax({
+            dataType:'json',
+            url : 'https://rapando.co.ke/api.json',
+            method: 'GET',
+            success : function (res) {
+                api_app = res;
+                api_auth = res.clientId + ":" + res.secret;
+               
 
-        var ajaxConfig = {
-            async : true,
-            url : link + "/api/me",
-            method :'GET',
-            data : {
-                paging : "false",
-                assumeTrue : "false",
-                organisationUnits:"true",
-                lastUpdated : "2014-08-01",
+                // send the login request from here
+                $.ajax({
+                    dataType : 'json',
+                    type : 'GET',
+                    url : link + "/uaa/oauth/token",
+
+                    data : {
+                        "grant_type" : "password",
+                        "username"   : username,
+                        "password" : password
+                    },
+                    headers : {
+                        'Authorization' : setAuth (AUTHORIZATION_BASIC, api_auth),
+                        'Accept' : 'application/json'
+                    },
+                    success  : function (res) {
+                        console.log(res);
+                    },
+                    error : function () {
+                        console.log("error occured on login");
+                    }
+                })
+
             },
-            dataType : "json",
-            contentType : CONTENT_TYPE_APPLICATION,
-            headers : { "Authorization" : setAuth (AUTHORIZATION_BEARER, "d1fea597-9c67-4fca-9721-433d551efd35") },
-            loaderId : "loader",
-            loaderSize : 20,
-            callback : function (response, ajaxConfig) {
-                //Storage.clear();
-                Storage.write ("data", response)
-                Storage.read("data", ajaxConfig, function (res,ajaxConfig) {
-                    console.log(res);
-                });
-                
+            error : function() {
+                // error getting the api details
             }
-
-        }
-
-        
-
-
-        dhis2ApiPost(ajaxConfig);
-
+        })
 
     })

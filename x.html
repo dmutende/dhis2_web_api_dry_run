@@ -1,0 +1,10 @@
+<button onclick="generate()">click me</button>
+<script type="text/javascript">
+function generate() {
+    x = Math.random().toString(36).substring(2);
+    console.log(x);
+
+    var Exp = /[a-zA-Z]+$/
+    console.log(x.match(Exp));
+}
+</script>

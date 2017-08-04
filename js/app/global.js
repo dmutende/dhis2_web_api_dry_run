@@ -15,6 +15,9 @@ var STORE_NAME_API_ACCESS_TOKEN_TYPE = '';
 var STORE_NAME_API_ACCESS_EXPIRY = '';
 var STORE_NAME_API_ACCESS_SCOPE = '';
 
+var APP_SESSION_TOKEN = '';
+var APP_USER_INFO = '';
+
 var CONTENT_TYPE_APPLICATION_DEFAULT = 'application/x-www-form-urlencoded';
 var CONTENT_TYPE_APPLICATION = 'application/json';
 var CONTENT_TYPE_TEXT = 'text/json';

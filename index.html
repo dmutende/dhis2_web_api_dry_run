@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Api</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h3>Testing Web Api for DHIS2 26</h3>
+        <hr />
+    </div>
+    <!--  login modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form form-horizontal row" name="login-form">
+                        <ul class="list-group col-sm-8 col-sm-offset-2">
+                            <li class="list-group-item">
+                                <h4>All fields are required</h4>
+                            </li>
+                            <li class="list-group-item ">
+                                <label class="label-control">Username</label>
+                                <input type="text" name="username" maxlength="20" required class="form-control" autofocus value="workforce" />
+                                <br />
+                                <label class="label-control">Password</label>
+                                <input type="password" name="password" required maxlength="50" class="form-control" value="Protocol1" />
+                                <br />
+
+                                <label class="label-control">URL</label>
+                                <input type="url" name="url" required maxlength="50" class="form-control" placeholder="https://example.com" value="http://test.hiskenya.org" />
+                                <br />
+                                <label class="label-control">Use OAuth 2</label> &nbsp;&nbsp;
+                                <input type="checkbox"  name="oauth2">
+                            </li>
+                        </ul>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning pull-left" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/lib//jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lib/localforage.js"></script>
+    <script type="text/javascript" src="js/app/elon/global.js"></script>
+    <script type="text/javascript" src="js/app/elon/elon.js"></script>
+   
+
+
+    <script type="text/javascript" src="js/app/main.js"></script>
+</body>
+
+</html>
